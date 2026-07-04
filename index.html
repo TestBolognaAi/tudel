@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raggio — la ricerca AI per la tua città</title>
+  <title>tudel.ai — la ricerca AI per la tua città</title>
   <meta name="description" content="Non serve un sito web per farti conoscere. Basta un prompt e raggiungi migliaia di utenti a Bologna. Beta settembre 2026." />
-  <meta property="og:title" content="Raggio — la ricerca AI per la tua città" />
+  <meta property="og:title" content="tudel.ai — la ricerca AI per la tua città" />
   <meta property="og:description" content="Un messaggio e l'AI trova tutto quello che cerchi qui vicino." />
+  <meta property="og:image" content="https://staffagabrielee-lgtm.github.io/raggio/festa%20sta%20sera.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://staffagabrielee-lgtm.github.io/raggio/festa%20sta%20sera.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -14,15 +17,17 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:            #090909;
-    --bg-card:       #111111;
-    --bg-card-2:     #181818;
-    --accent:        #AAFF00;
-    --accent-dim:    rgba(170,255,0,0.10);
-    --accent-border: rgba(170,255,0,0.22);
-    --text:          #F2F2F2;
-    --text-muted:    #6B6B6B;
-    --border:        #1E1E1E;
+    --bg:            #060912;
+    --bg-card:       #0D1424;
+    --bg-card-2:     #131C33;
+    --accent:        #5B84FF;
+    --accent-solid:  #2A50A5;
+    --on-accent:     #F5F8FF;
+    --accent-dim:    rgba(91,132,255,0.10);
+    --accent-border: rgba(91,132,255,0.24);
+    --text:          #F2F4FA;
+    --text-muted:    #6E7690;
+    --border:        #1B2338;
     --radius:        18px;
     --radius-sm:     12px;
   }
@@ -52,12 +57,13 @@
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
   }
-  .logo { font-size: 21px; font-weight: 900; letter-spacing: -0.5px; }
+  .logo { font-size: 21px; font-weight: 900; letter-spacing: -0.5px; display:flex; align-items:center; gap:9px; }
   .logo span { color: var(--accent); }
+  .logo-icon { width: 26px; height: 26px; border-radius: 7px; display: block; }
   .nav-btn {
     display: inline-block;
-    background: var(--accent);
-    color: #090909;
+    background: var(--accent-solid);
+    color: var(--on-accent);
     font-size: 13px;
     font-weight: 700;
     border-radius: 999px;
@@ -131,8 +137,8 @@
 
   .cta-primary {
     display: inline-block;
-    background: var(--accent);
-    color: #090909;
+    background: var(--accent-solid);
+    color: var(--on-accent);
     font-size: 16px;
     font-weight: 800;
     border-radius: 999px;
@@ -179,7 +185,7 @@
     font-size: 14px;
     line-height: 1.45;
   }
-  .bubble-user { background:var(--accent); color:#090909; font-weight:600; border-bottom-right-radius:4px; }
+  .bubble-user { background:var(--accent-solid); color:var(--on-accent); font-weight:600; border-bottom-right-radius:4px; }
   .bubble-ai   { background:var(--bg-card-2); border:1px solid var(--border); border-bottom-left-radius:4px; }
 
   .typing-wrap { display:flex; }
@@ -286,24 +292,6 @@
   .step h3 { font-size:16px; font-weight:700; margin-bottom:4px; letter-spacing:-.2px; }
   .step p  { font-size:14px; color:var(--text-muted); line-height:1.55; }
 
-  /* ── SOCIAL PROOF ── */
-  .counter-wrap {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 44px 32px;
-    text-align: center;
-    margin-bottom: 12px;
-  }
-  .counter-num  { font-size:72px; font-weight:900; letter-spacing:-4px; color:var(--accent); line-height:1; margin-bottom:6px; }
-  .counter-sub  { font-size:14px; color:var(--text-muted); font-weight:500; }
-  .quote        { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; }
-  .quote-text   { font-size:15px; font-style:italic; line-height:1.65; margin-bottom:16px; }
-  .quote-author { display:flex; align-items:center; gap:10px; }
-  .avatar       { width:38px;height:38px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#090909;flex-shrink:0; }
-  .author-name  { font-size:13px; font-weight:700; }
-  .author-sub   { font-size:12px; color:var(--text-muted); }
-
   /* ── FORM ── */
   .form-outer { padding:0 24px 88px; max-width:560px; margin:0 auto; }
   .form-card  { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:36px 28px; }
@@ -312,14 +300,16 @@
   .field          { margin-bottom:18px; }
   .field > label  { display:block; font-size:13px; font-weight:600; margin-bottom:8px; }
 
-  input[type="email"] {
+  input[type="email"], input[type="tel"], textarea {
     width:100%; background:#0A0A0A;
     border:1px solid var(--border); border-radius:var(--radius-sm);
     padding:14px 16px; font-size:16px; color:var(--text);
     font-family:inherit; outline:none; transition:border-color .2s;
   }
-  input[type="email"]:focus { border-color:var(--accent); }
-  input[type="email"]::placeholder { color:var(--text-muted); }
+  textarea { resize:vertical; min-height:88px; line-height:1.5; }
+  input[type="email"]:focus, input[type="tel"]:focus, textarea:focus { border-color:var(--accent); }
+  input[type="email"]::placeholder, input[type="tel"]::placeholder, textarea::placeholder { color:var(--text-muted); }
+  .field-optional { font-weight:400; color:var(--text-muted); }
 
   .check-group { display:flex; flex-direction:column; gap:10px; }
   .check-item  {
@@ -333,7 +323,7 @@
   .check-item span { font-size:14px; font-weight:500; }
 
   .submit {
-    width:100%; background:var(--accent); color:#090909;
+    width:100%; background:var(--accent-solid); color:var(--on-accent);
     border:none; border-radius:999px; padding:18px;
     font-size:16px; font-weight:800; cursor:pointer;
     margin-top:26px; font-family:inherit;
@@ -351,7 +341,7 @@
   /* ── FOOTER ── */
   .footer-outer { border-top:1px solid var(--border); padding:44px 24px 36px; }
   footer        { max-width:640px; margin:0 auto; text-align:center; }
-  .footer-logo  { font-size:22px; font-weight:900; letter-spacing:-.5px; margin-bottom:6px; }
+  .footer-logo  { font-size:22px; font-weight:900; letter-spacing:-.5px; margin-bottom:6px; display:flex; align-items:center; justify-content:center; gap:9px; }
   .footer-logo span { color:var(--accent); }
   .footer-tag   { font-size:13px; color:var(--text-muted); margin-bottom:10px; }
   .footer-credit{ font-size:12px; color:var(--text-muted); }
@@ -367,22 +357,22 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <div class="logo">raggio<span>.</span></div>
-  <a href="#form" class="nav-btn">Mi avvisa</a>
+  <div class="logo"><img class="logo-icon" src="logo.jpg" alt="tudel.ai">tudel<span>.ai</span></div>
+  <a href="#form" class="nav-btn">Pre-iscriviti</a>
 </nav>
 
 <!-- ── HERO ── -->
 <section class="hero">
 <h1>Cosa <em>cerchi</em><br>a Bologna?</h1>
   <p class="hero-sub">Non serve un sito web. Non serve un account.<br>Basta un messaggio e l'AI ti trova tutto quello che cerchi qui vicino.</p>
-  <a href="#form" class="cta-primary">Mi avvisa quando esce</a>
+  <a href="#form" class="cta-primary">Pre-iscriviti gratuitamente</a>
   <p class="hero-note">Gratis &nbsp;·&nbsp; Nessuno spam &nbsp;·&nbsp; Solo Bologna</p>
 
   <div class="chat-outer">
     <div class="chat-mock">
       <div class="chat-header">
         <div class="chat-header-dot"></div>
-        <span class="chat-header-label">Raggio AI · Bologna</span>
+        <span class="chat-header-label">tudel.ai · Bologna</span>
       </div>
       <div class="chat-row user" id="row-user">
         <div class="bubble bubble-user" id="bbl-user"></div>
@@ -539,24 +529,6 @@
   </div>
 </section>
 
-<!-- ── SOCIAL PROOF ── -->
-<section class="wrap sec">
-  <span class="label reveal">Chi usa Raggio</span>
-  <div class="counter-wrap reveal">
-    <div class="counter-num" id="counter">0</div>
-    <div class="counter-sub">offerte attive a Bologna</div>
-  </div>
-  <div class="quote reveal">
-    <p class="quote-text">"Da quando pubblico su Raggio ricevo 3-4 richieste a settimana — senza sito, senza pubblicità, senza fare niente di speciale."</p>
-    <div class="quote-author">
-      <div class="avatar">SD</div>
-      <div>
-        <div class="author-name">Sofia D.</div>
-        <div class="author-sub">Ripetizioni di matematica · Bolognina</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── FORM ── -->
 <section class="form-outer" id="form">
@@ -566,7 +538,7 @@
       <p class="form-desc">Lancio inizio settembre 2026 — ti avvisiamo noi.</p>
       <!-- Sostituisci action con il tuo endpoint Formspree / Supabase / Airtable -->
       <form id="signup-form" action="https://formsubmit.co/gabrielestaffa2003@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Nuova pre-iscrizione Raggio" />
+        <input type="hidden" name="_subject" value="Nuova pre-iscrizione tudel.ai" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_next" value="https://staffagabrielee-lgtm.github.io/raggio/?success=1" />
         <div class="field">
@@ -574,7 +546,11 @@
           <input type="email" id="email" name="email" placeholder="nome@email.com" required />
         </div>
         <div class="field">
-          <label>Come usi Raggio?</label>
+          <label for="telefono">Il tuo numero di telefono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="333 1234567" required />
+        </div>
+        <div class="field">
+          <label>Come usi tudel.ai?</label>
           <div class="check-group">
             <label class="check-item">
               <input type="checkbox" name="ruolo[]" value="cerco" />
@@ -586,7 +562,11 @@
             </label>
           </div>
         </div>
-        <button type="submit" class="submit" id="submit-btn">Mi avvisa quando esce &nbsp;→</button>
+        <div class="field">
+          <label for="come-useresti">Come useresti l'app? <span class="field-optional">(facoltativo)</span></label>
+          <textarea id="come-useresti" name="come_useresti" placeholder="Se potessi cercare qualsiasi cosa a Bologna, cosa ti servirebbe?"></textarea>
+        </div>
+        <button type="submit" class="submit" id="submit-btn">Pre-iscriviti gratuitamente &nbsp;→</button>
       </form>
     </div>
     <div class="success" id="success">
@@ -600,7 +580,7 @@
 <!-- ── FOOTER ── -->
 <div class="footer-outer">
   <footer>
-    <div class="footer-logo">raggio<span>.</span></div>
+    <div class="footer-logo"><img class="logo-icon" src="logo.jpg" alt="tudel.ai">tudel<span>.ai</span></div>
     <div class="footer-tag">Il nuovo sistema di ricerca AI per la tua città</div>
     <div class="footer-credit">Bologna &nbsp;·&nbsp; <strong>Beta settembre 2026</strong></div>
   </footer>
@@ -633,23 +613,6 @@ function chat() {
   setTimeout(chat, 5000);
 }
 chat();
-
-// ── Counter ──
-const counterEl = document.getElementById('counter');
-function runCounter() {
-  const TARGET = 347, dur = 1600;
-  let start = null;
-  function step(ts) {
-    if (!start) start = ts;
-    const p = Math.min((ts - start) / dur, 1);
-    counterEl.textContent = Math.floor((1 - Math.pow(1-p,3)) * TARGET);
-    if (p < 1) requestAnimationFrame(step);
-    else counterEl.textContent = TARGET;
-  }
-  requestAnimationFrame(step);
-}
-const cObs = new IntersectionObserver(([e]) => { if(e.isIntersecting){ runCounter(); cObs.disconnect(); } }, { threshold:.5 });
-if(counterEl) cObs.observe(counterEl.closest('.counter-wrap'));
 
 // ── Scroll reveal ──
 const rObs = new IntersectionObserver(entries => {
